@@ -1,0 +1,146 @@
+// CodingChallenge.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
+//
+
+#include "pch.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include "Planet.h"
+#include "RSJparser.tcc"
+
+using namespace std;
+
+RSJresource getJsonFromFile(string fileName);
+unsigned long long convertDistanceString(string distStr);
+Planet *getPlanetByName(string name);
+
+vector<Planet> planets;
+
+Planet
+	*startPlanet,
+	*destinationPlanet;
+
+int main()
+{
+	cout.precision(30);
+	RSJresource data = getJsonFromFile("generatedGraph.json");
+
+	int i = 0;
+	while (data["nodes"][i]["label"].exists()) {
+		planets.push_back(Planet(data["nodes"][i]["label"].as<string>()));
+		i++;
+	}
+
+	i = 0;
+	while (data["edges"][i].exists()) {
+		if (data["edges"][i]["cost"].as<string>().rfind("0.", 0) == 0)
+			planets[data["edges"][i]["source"].as<int>()].addBidirectionalRoute(&planets[data["edges"][i]["target"].as<int>()], convertDistanceString(data["edges"][i]["cost"].as<string>()));
+		else
+			cout << "WARNING: Distance is >= 1 (" << data["edges"][i]["cost"].as<string>() << ")" << endl;
+		i++;
+	}
+	cout << "Loaded " << planets.size() << " planets and " << i << " routes from JSON File!" << endl;
+
+	startPlanet = getPlanetByName("Erde");
+	destinationPlanet = getPlanetByName("b3-r7-r4nd7");
+
+
+
+
+
+
+
+
+
+
+
+
+
+	cout << startPlanet->name << endl;
+	for (auto &item : startPlanet->routes) {
+		cout << "Route " << i << ": " << item.first->name << " (" << item.second << ")" << endl;
+
+		string tmpStr = to_string(item.second);
+
+		bool first = true;
+		for (int i = tmpStr.length(); i < 20; i++) {
+			cout << "0";
+			if (first) {
+				cout << ".";
+				first = false;
+			}
+		}
+
+		cout << tmpStr << endl;
+
+	}
+
+	cout << "source:18, target : 810, cost : 0.04060214221510905" << endl;
+	
+
+//	cout << "nodes: " << json["nodes"].dump() << "\n";
+//	cout << "edges: " << json["edges"].dump() << "\n";
+}
+
+RSJresource getJsonFromFile(string fileName) {
+	ifstream jsonFile(fileName);
+	stringstream buffer;
+	buffer << jsonFile.rdbuf();
+	return RSJresource(buffer.str());
+}
+
+// sets all values to same width and converts to u long long (Normalization)
+unsigned long long convertDistanceString(string distStr) {
+	string numerAsString = distStr;
+	numerAsString.erase(0, 2);
+	numerAsString.append(19 - numerAsString.length(), '0');
+	/*
+	static int longestStr = 0;
+	if (longestStr < numerAsString.length()) {
+		longestStr = numerAsString.length();
+		cout << "longest: " << longestStr << endl;
+	}*/
+	return stoull(numerAsString);
+}
+
+Planet *getPlanetByName(string name) {
+	for (auto &item : planets) {
+		if (item.name == name)
+			return &item;
+	}
+}
+
+
+
+vector<pair<Planet*, unsigned long long>> waypoints;
+vector<vector<int>> triedRoutes;
+
+int startWaypoint = 0;
+
+void init() {
+	for (auto &item : planets) {
+		waypoints.push_back(make_pair(&item, INFINITY));
+		if (&item == startPlanet) {
+			waypoints.back().second = 0;
+			startWaypoint = waypoints.size() - 1;
+		}
+	}
+
+
+	int currentWaypoint = startWaypoint;
+	unsigned long long currentDistance = 0;
+
+	bool reachedDestination = false;
+	while (!reachedDestination) {
+
+		for (auto &route : waypoints[currentWaypoint].first->routes) {
+			waypoints[currentWaypoint].first
+		}
+	}
+
+}
+
+unsigned long long weightPlanets() {
+
+}

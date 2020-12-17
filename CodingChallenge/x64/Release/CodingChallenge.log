@@ -1,0 +1,21 @@
+﻿  pch.cpp
+  CodingChallenge.cpp
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(68): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(78): warning C4267: "Initialisierung": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(162): warning C4267: "Initialisierung": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(164): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(169): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(205): warning C4267: "+=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(370): warning C4267: "return": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(376): warning C4267: "return": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(584): warning C4267: "Initialisierung": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(586): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+c:\users\hauke marquardt\source\repos\codingchallenge\codingchallenge\rsjparser.tcc(591): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
+  json11.cpp
+  Planet.cpp
+  uint128_t.cpp
+     Bibliothek "C:\Users\Hauke Marquardt\source\repos\CodingChallenge\x64\Release\CodingChallenge.lib" und Objekt "C:\Users\Hauke Marquardt\source\repos\CodingChallenge\x64\Release\CodingChallenge.exp" werden erstellt.
+  Code wird generiert.
+  All 1739 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Codegenerierung ist abgeschlossen.
+  CodingChallenge.vcxproj -> C:\Users\Hauke Marquardt\source\repos\CodingChallenge\x64\Release\CodingChallenge.exe
